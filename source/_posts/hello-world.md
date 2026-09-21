@@ -1,38 +1,29 @@
 ---
 title: Hello World
+date: 2026-09-21 20:00:00
+tags:
+  - 随笔
+  - 建站
+categories:
+  - 生活
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+这是我的第一篇博客。
 
-### Create a new post
+2026 年 9 月 21 日，在 AI 的帮助下，我终于搭建起了属于自己的个人博客。从零开始配置环境、解决各种意想不到的小问题，过程虽有曲折，但每一步都乐在其中。
 
-``` bash
-$ hexo new "My New Post"
-```
+## 为什么要写博客
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+一直想有一个可以自由记录、沉淀想法的地方。比起社交平台上转瞬即逝的碎片，博客更像一块自留地——文章归自己所有，想写什么就写什么，也方便日后回看成长。
 
-### Run server
+## 关于这个站点
 
-``` bash
-$ hexo server
-```
+- 基于 **Hexo** 搭建，部署在 **GitHub Pages**
+- 主题先用默认的 Landscape，后续再慢慢折腾更顺眼的样式
+- 内容方向：学习笔记、生活随笔、技术分享
 
-More info: [Server](https://hexo.io/docs/server.html)
+## 致谢
 
-### Generate static files
+特别感谢 **赵劲博学长** 的启发，让我萌生了搭建个人博客的念头。
 
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+> 千里之行，始于足下。今天，迈出了第一步。

@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site（站点基础信息，最常修改的部分）
-title: 我的博客          # 站点标题，改成你的站名
-subtitle: ''            # 副标题/一句话简介，可留空
+title: Blog of CG          # 站点标题，改成你的站名
+subtitle: 'Track my progress'            # 副标题/一句话简介，可留空
 description: ''         # 站点描述，利于搜索引擎 SEO，可留空
 keywords:               # 站点关键词，可留空
-author: 你的名字        # 作者名，改成你的名字
+author: CG        # 作者名，改成你的名字
 language: zh-CN         # 语言：中文填 zh-CN
 timezone: ''            # 时区，一般留空（自动使用服务器时区）
 
