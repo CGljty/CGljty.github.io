@@ -2,18 +2,18 @@
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
-# Site
-title: 我的博客
-subtitle: ''
-description: ''
-keywords:
-author: 你的名字
-language: zh-CN
-timezone: ''
+# Site（站点基础信息，最常修改的部分）
+title: 我的博客          # 站点标题，改成你的站名
+subtitle: ''            # 副标题/一句话简介，可留空
+description: ''         # 站点描述，利于搜索引擎 SEO，可留空
+keywords:               # 站点关键词，可留空
+author: 你的名字        # 作者名，改成你的名字
+language: zh-CN         # 语言：中文填 zh-CN
+timezone: ''            # 时区，一般留空（自动使用服务器时区）
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://CGljty.github.io/
+url: https://CGljty.github.io/   # 站点访问地址，必须与 GitHub 用户名一致（CGljty.github.io）
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: landscape   # 当前主题；想换主题（如 butterfly/next/fluid）改这里，并先 npm install 对应主题包
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

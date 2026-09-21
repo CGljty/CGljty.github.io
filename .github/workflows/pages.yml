@@ -1,48 +1,63 @@
+# ============================================================
+#  GitHub Pages 自动部署工作流
+#  作用：每次向 main 分支 push 代码，GitHub 会自动构建 Hexo 博客并发布上线
+#  启用位置：仓库 Settings → Pages → Build and deployment → Source 选 "GitHub Actions"
+# ============================================================
 name: Pages
 
+# 触发条件：什么时候运行这个工作流
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
+    branches: [main]        # 推送到 main 分支时自动运行（日常写文章后 git push 即触发）
+  workflow_dispatch:        # 允许在仓库的 Actions 页面手动点击 "Run workflow" 触发
 
+# 权限：工作流所需的最小权限（遵循安全最佳实践）
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read            # 读取仓库代码
+  pages: write              # 写入 GitHub Pages
+  id-token: write           # 用于 OIDC 身份验证（部署必需）
 
+# 并发控制：避免多次推送时部署任务互相覆盖
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: pages              # 同一组任务串行执行
+  cancel-in-progress: false # 不取消正在进行的部署，保证线上稳定
 
+# 定义要执行的任务（job）
 jobs:
+  # 任务一：构建静态站点
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # 在最新的 Ubuntu 云环境运行
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4   # 拉取仓库源码
         with:
-          fetch-depth: 0
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: npm
-      - name: Install dependencies
-        run: npm install
-      - name: Build with Hexo
-        run: npx hexo generate
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
+          fetch-depth: 0            # 全量拉取，保留完整提交历史
 
+      - name: Setup Node
+        uses: actions/setup-node@v4 # 安装 Node.js 运行环境
+        with:
+          node-version: "22"        # 使用 Node 22（与本地开发版本一致）
+          cache: npm                # 缓存 npm 依赖，加快构建速度
+
+      - name: Install dependencies
+        run: npm install            # 安装 package.json 中的依赖（含 hexo 及其插件）
+
+      - name: Build with Hexo
+        run: npx hexo generate      # 执行 Hexo 构建，生成静态文件到 ./public 目录
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3  # 把 public 目录打包成可部署产物
+        with:
+          path: ./public           # 要发布的内容目录（Hexo 构建结果）
+
+  # 任务二：将构建产物部署到 GitHub Pages
   deploy:
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
+      name: github-pages                       # 部署环境名称
+      url: ${{ steps.deployment.outputs.page_url }}  # 部署完成后生成的站点访问地址
+    needs: build                               # 必须等 build 任务成功后才执行
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4          # 官方动作：将产物发布到 Pages
