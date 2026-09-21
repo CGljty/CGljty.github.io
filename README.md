@@ -9,6 +9,8 @@ npm install        # 首次或加依赖后
 npx hexo server    # 本地预览，默认 http://localhost:4000
 ```
 
+
+
 > 依赖已经安装好，直接 `npx hexo server` 即可。
 
 ## 写新文章
@@ -22,21 +24,13 @@ npx hexo new "文章标题"
 ## 部署到 GitHub Pages（只需做一次）
 
 1. 在 GitHub 新建仓库，名称**必须**为 `<你的用户名>.github.io`（例如用户名 `octocat` → 仓库名 `octocat.github.io`）。
-2. 打开 `_config.yml`，把第 16 行左右的
-
-   ```yaml
-   url: https://YOUR_GITHUB_USERNAME.github.io/
-   ```
-
-   改成你的真实用户名，例如 `url: https://octocat.github.io/`。
+2. `_config.yml` 里的 `url` 已设置为 `https://CGljty.github.io/`，无需再改。
 3. 在本地博客目录下连接远程仓库并推送（本仓库已 `git init` 并提交）：
-
    ```bash
-   git remote add origin https://github.com/<你的用户名>/<你的用户名>.github.io.git
+   git remote add origin https://github.com/CGljty/CGljty.github.io.git
    git branch -M main
    git push -u origin main
    ```
-
 4. 推送后进入仓库 **Settings → Pages → Build and deployment → Source**，选择 **GitHub Actions**。
 5. 等待 Actions 构建完成（Actions 标签页可见进度），随后访问 `https://<你的用户名>.github.io/` 即可。
 
